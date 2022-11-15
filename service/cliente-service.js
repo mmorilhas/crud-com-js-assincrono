@@ -28,8 +28,33 @@ const removeCliente = (id) => {
   })
 }
 
+const pegaCliente = (id) => {
+  return fetch(`http://localhost:3000/profile/${id}`)
+  .then(resposta => {
+    return resposta.json()
+  })
+}
+
+const editaCliente = (id, nome, email) => {
+  return fetch(`http://localhost:3000/profile/${id}`, {
+    method: 'PUT',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      nome: nome,
+      email: email
+    })
+  })
+  .then(resposta => {
+    return resposta.json()
+  })
+}
+
 export const clienteService = {
   listaCLientes,
   criaCLiente,
-  removeCliente
+  removeCliente,
+  pegaCliente,
+  editaCliente
 }
