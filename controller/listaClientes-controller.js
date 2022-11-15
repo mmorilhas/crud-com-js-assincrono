@@ -24,7 +24,7 @@ const criaNovaLinha = (nome, email, id) => {
 const tabela = document.querySelector('[data-tabela]');
 
 tabela.addEventListener('click', (evento) => {
-  let ehBotaoDeletar = evento.target.className === 'botao-simples botao-simples--excluir'
+  let ehBotaoDeletar = evento.target.className === 'botao-simples botao-simples--excluir';
 
   if(ehBotaoDeletar){
     const linhaCliente = evento.target.closest('[data-id]');
